@@ -24,6 +24,7 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Gradle
+      continue-on-error: true
      # run: gradle build
 
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
@@ -34,10 +35,12 @@ jobs:
         USERNAME: ${{ github.actor }}
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - uses: deblockt/cucumber-report-annotations-action@v1.7
+      continue-on-error: true
       with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
           path: "**/cucumber.json"
     - name: ReRunTest
+      continue-on-error: true
       run:  ./gradlew cucumberReRun
       env:
         USERNAME: ${{ github.actor }}
