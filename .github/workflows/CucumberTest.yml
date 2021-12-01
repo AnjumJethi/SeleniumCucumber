@@ -24,11 +24,11 @@ jobs:
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
     - name: Build with Gradle
-      run: gradle build
+     # run: gradle build
 
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
     # the publishing section of your build.gradle
-    - name: Publish to GitHub Packages
+   # - name: Publish to GitHub Packages
       run:  ./gradlew cucumberCli
       env:
         USERNAME: ${{ github.actor }}
@@ -37,8 +37,13 @@ jobs:
       with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
           path: "**/cucumber.json"
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target
+    - name: ReRunTest
+      run:  ./gradlew cucumberReRun
+      env:
+        USERNAME: ${{ github.actor }}
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #- name: Deploy
+     # uses: peaceiris/actions-gh-pages@v3
+      #with:
+       #   github_token: ${{ secrets.GITHUB_TOKEN }}
+        #  publish_dir: ./target
