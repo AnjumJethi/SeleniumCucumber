@@ -23,7 +23,7 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-    - name: Build with Gradle
+    - name: CucumberTest
       continue-on-error: true
      # run: gradle build
 
@@ -39,12 +39,12 @@ jobs:
       with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
           path: "**/cucumber.json"
-    - name: ReRunTest
-      continue-on-error: true
-      run:  ./gradlew cucumberReRun
-      env:
-        USERNAME: ${{ github.actor }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    #- name: ReRunTest
+     # continue-on-error: true
+      #run:  ./gradlew cucumberReRun
+      #env:
+       # USERNAME: ${{ github.actor }}
+        #TOKEN: ${{ secrets.GITHUB_TOKEN }}
     #- name: Deploy
      # uses: peaceiris/actions-gh-pages@v3
       #with:
