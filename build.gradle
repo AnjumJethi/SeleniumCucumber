@@ -36,6 +36,7 @@ task cucumberCli() {
             classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
             args = [
                     '--plugin', 'pretty',
+                    '--plugin', 'html:target/cucumber-report.json',
                     '--plugin', 'html:target/cucumber-report.html',
                     '--glue', 'com.cucumberSelenium',
                     'src/test/resources']
