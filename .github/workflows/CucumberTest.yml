@@ -47,8 +47,8 @@ jobs:
       env:
        USERNAME: ${{ github.actor }}
        TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #- name: Deploy
-     # uses: peaceiris/actions-gh-pages@v3
-      #with:
-       #   github_token: ${{ secrets.GITHUB_TOKEN }}
-        #  publish_dir: ./target
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target
