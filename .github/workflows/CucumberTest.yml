@@ -21,7 +21,8 @@ jobs:
         echo "::set-env name=tagname::run_test_one"
     - name: displaytagname
       run: |
-        echo $tagname
+        echo "::set-env name=tagname::run_test_one"
+        echo $ {{ tagname ${{ tagname }} }}
     - name: Set up JDK 11
       uses: actions/setup-java@v2
       with:
