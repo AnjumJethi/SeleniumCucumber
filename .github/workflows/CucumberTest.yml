@@ -21,8 +21,9 @@ jobs:
         echo "::set-env name=tagname::run_test_one"
     - name: displaytagname
       run: |
-        echo "::set-env name=tagname::run_test_one"
-        echo $tagname
+        echo "tagname1=run_test_one" >> $GITHUB_ENV
+        echo "tagname2=run_test_two" >> $GITHUB_ENV
+        echo ${{ ($tagname1 == "abdfd" && "test1") || ($tagname2 == "sdf") || $tagname }} 
     - name: Set up JDK 11
       uses: actions/setup-java@v2
       with:
