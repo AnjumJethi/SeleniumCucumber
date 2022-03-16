@@ -25,6 +25,7 @@ jobs:
       run: |
         echo ${{ (env.tagname1 == env.tagname2 && env.tagname1) || (env.tagname2 == 'test2' && 'test2') || env.tagname }}
         echo ${{ env.tagname }}
+        echo "CUCUMBER_TAG=${{ env.tagname }}" >> $GITHUB_ENV
       env:
         CUCUMBER_TAG1: ${{ env.tagname }}
     - name: cucumberTagvalue
