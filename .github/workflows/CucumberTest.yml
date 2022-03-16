@@ -15,10 +15,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: buildcheck
-      if: ${{ github.ref == 'refs/heads/master' && always() }}
-      run: | 
-        echo "::set-env name=tagname::run_test_one"
     - name: displaytagname
       run: |
         echo "tagname1=run_test_one" >> $GITHUB_ENV
