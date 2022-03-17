@@ -57,7 +57,11 @@ jobs:
       with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
           path: "**/cucumber-report.json"
-
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: cucumber-reports
+        path: "**/cucumber-report.json"
     - name: ReRunTest
       continue-on-error: true
       run:  ./gradlew cucumberReRun
