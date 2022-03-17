@@ -61,7 +61,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: cucumber-reports
-        path: "target/cucumber-report.json"
+        path: "target/cucumber-report.html"
     - name: ReRunTest
       continue-on-error: true
       run:  ./gradlew cucumberReRun
