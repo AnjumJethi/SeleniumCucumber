@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
         CUCUMBER_TAG: 'testTagValue'
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_URL }}
     permissions:
       contents: read
       packages: write
