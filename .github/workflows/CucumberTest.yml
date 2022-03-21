@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
         CUCUMBER_TAG: 'testTagValue'
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
     permissions:
       contents: read
       packages: write
@@ -68,9 +69,15 @@ jobs:
       env:
        USERNAME: ${{ github.actor }}
        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: slack - GitHub Actions Slack integration
+      uses: act10ns/slack@v1.5.0
+      with: 
+          status: "Pass"
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       if: ${{ github.ref == 'refs/heads/main' }}
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: myghpages
+  
+
