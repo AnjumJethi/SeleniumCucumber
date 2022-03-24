@@ -58,17 +58,17 @@ jobs:
       with:
           access-token: ${{ secrets.GITHUB_TOKEN }}
           path: "**/cucumber-report.json"
-    - name: Upload artifact
-      uses: actions/upload-artifact@v1
-      with:
-        name: cucumber-reports
-        path: "target/cucumber-report.html"
     - name: ReRunTest
       continue-on-error: true
       run:  ./gradlew cucumberReRun
       env:
        USERNAME: ${{ github.actor }}
        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1
+      with:
+        name: cucumber-reports
+        path: "target/cucumber-report.html"
     - name: slack - GitHub Actions Slack integration
       uses: act10ns/slack@v1.5.0
       with: 
