@@ -68,7 +68,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: cucumber-reports
-        path: "target/cucumber-report.html"
+        path: "target/"
     - name: slack - GitHub Actions Slack integration
       uses: act10ns/slack@v1.5.0
       with: 
