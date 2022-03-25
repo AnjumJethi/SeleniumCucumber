@@ -93,15 +93,15 @@ jobs:
                   "fields": [
                     {
                       "type": "mrkdwn",
-                      "text": "*ENV:*test"
+                      "text": "*ENV:*\ntest"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Execution Status:*${{ env.CUCUMBER_JOB_STATUS }}"
+                      "text": "*Execution Status:*\n${{ env.CUCUMBER_JOB_STATUS }} *this is green*"
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "\n*Run Details:*${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                      "text": "*Run Details:*\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
                     }
                   ]
                 }
