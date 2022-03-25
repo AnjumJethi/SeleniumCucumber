@@ -70,35 +70,23 @@ jobs:
         name: cucumber-reports
         path: "target/"
     - name: slack - GitHub Actions Slack integration
+      id: slack
       uses: slackapi/slack-github-action@v1.18.0
-      with: 
+      with:
         payload: |
-          blocks": [
-                {
-                  "type": "header",
-                  "text": "Suite Black Box Automation Results",
-                  "emoji": true
-                },
-                {
-                  "type": "header",
-                  "text": "Suite Black Box Automation Results",
-                  "emoji": true
-                },
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "mrkdwn",
-                      "text": "*ENV:*\ntest"
-                    },
-                    {
-                      "type": "mrkdwn",
-                      "text": "*Execution Status:*\n<example.com|Fred Enriquez>"
-                    }
-                  ]
+          {
+            "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
                 }
-              ]
-          env:
+              }
+            ]
+          }
+      env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_URL }}
             SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
     - name: Deploy
