@@ -1,4 +1,4 @@
-name: Gradle Package
+name: Test Gradle Package
 
 on:
   workflow_dispatch:
