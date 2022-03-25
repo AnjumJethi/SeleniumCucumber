@@ -99,6 +99,10 @@ jobs:
                     {
                       "type": "mrkdwn",
                       "text": "*Execution Status:*\n<example.com|Fred Enriquez>"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Execution Status:*\n${{ env.CUCUMBER_JOB_STATUS }}"
                     }
                   ]
                 },
@@ -106,14 +110,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "GitHub Action build result: ${{ env.CUCUMBER_JOB_STATUS }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
-                }
-              },
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                  "text": "*Run Details:*\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
                 }
               }
             ]
