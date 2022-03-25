@@ -28,5 +28,4 @@ jobs:
     - uses: actions/checkout@v2
     - name: cucumberTagvalue
       if: (${{ env.SEND_SLACK_NOTIFICATION }} == 'yes')
-      run: |
-        echo ${{ env.SEND_SLACK_NOTIFICATION }}
+      run: echo "${{ env.SEND_SLACK_NOTIFICATION }} (${{ env.SEND_SLACK_NOTIFICATION }} == 'yes')"
