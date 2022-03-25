@@ -77,6 +77,24 @@ jobs:
             "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
             "blocks": [
               {
+                  "type": "header",
+                  "text": "Cucumber Automation Results",
+                  "emoji": true
+              },
+              {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*ENV:*\ntest"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Execution Status:*\n<example.com|Fred Enriquez>"
+                    }
+                  ]
+              },
+              {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
