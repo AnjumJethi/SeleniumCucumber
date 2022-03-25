@@ -97,7 +97,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Execution Status:*\n${{ env.CUCUMBER_JOB_STATUS }} *this is green*"
+                      "text": "*Execution Status:*\n${{ env.CUCUMBER_JOB_STATUS }} :red_circle:"
                     },
                     {
                       "type": "mrkdwn",
