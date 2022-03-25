@@ -70,7 +70,7 @@ jobs:
         name: cucumber-reports
         path: "target/"
     - name: Cucumber Job Status
-      if: ${{ failure() }}
+      if: steps.rerun.outcome == 'failure'
       run: |
         env.CUCUMBER_JOB_STATUS: 'FAIL'
     - name: slack - GitHub Actions Slack integration
