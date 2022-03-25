@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
         CUCUMBER_TAG: 'testTagValue'
+        CUCUMBER_JOB_STATUS: 'PASS'
     permissions:
       contents: read
       packages: write
@@ -68,13 +69,17 @@ jobs:
       with:
         name: cucumber-reports
         path: "target/"
+    - name: Cucumber Job Status
+      if: ${{ failure() }}
+      run: |
+        env.CUCUMBER_JOB_STATUS: 'FAIL'
     - name: slack - GitHub Actions Slack integration
       id: slack
       uses: slackapi/slack-github-action@v1.18.0
       with:
         payload: |
           {
-            "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
+            "text": "GitHub Action build result: ${{ env.CUCUMBER_JOB_STATUS }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}",
             "blocks": [
               {
                 "type": "header",
@@ -101,7 +106,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                  "text": "GitHub Action build result: ${{ env.CUCUMBER_JOB_STATUS }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
                 }
               },
               {
