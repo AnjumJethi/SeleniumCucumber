@@ -1,0 +1,33 @@
+name: Gradle Package
+
+on: [push]
+  repository_dispatch:
+    types: [test]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Which set of tests to run
+        default: any_test
+      environment:
+        description: Which environment to run tests against
+        default: test
+      sendnotification:
+        description: Send notification over the slack
+        default: false
+jobs:
+  run_tests:
+    name: Run
+    runs-on: ubuntu-latest
+        env:
+        CUCUMBER_TAG: 'testTagValue'
+        CUCUMBER_JOB_STATUS: 'PASS'
+        CUCUMBER_JOB_STATUS_SIGN: ':white_check_mark:'
+        SEND_SLACK_NOTIFICATION: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload.sendnotification) || (github.event_name == 'workflow_dispatch' && github.event.inputs.sendnotification) || 'yes' }}
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - uses: actions/checkout@v2
+    - name: cucumberTagvalue
+      run: |
+        echo ${{ env.SEND_SLACK_NOTIFICATION }}
