@@ -85,6 +85,19 @@ jobs:
                 }
               },
               {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*ENV:*\ntest"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Execution Status:*\n<example.com|Fred Enriquez>"
+                    }
+                  ]
+                },
+              {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
