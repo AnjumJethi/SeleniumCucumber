@@ -101,7 +101,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*\nRun Details:*\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                      "text": "\n*Run Details:*${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
                     }
                   ]
                 }
