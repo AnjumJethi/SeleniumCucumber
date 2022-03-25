@@ -11,16 +11,16 @@ on:
         default: test
       sendnotification:
         description: Send notification over the slack
-        default: false
+        default: 'no'
 jobs:
   run_tests:
     name: Run
     runs-on: ubuntu-latest
-        env:
-        CUCUMBER_TAG: 'testTagValue'
-        CUCUMBER_JOB_STATUS: 'PASS'
-        CUCUMBER_JOB_STATUS_SIGN: ':white_check_mark:'
-        SEND_SLACK_NOTIFICATION: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.sendnotification) || 'yes' }}
+    env:
+          CUCUMBER_TAG: 'testTagValue'
+          CUCUMBER_JOB_STATUS: 'PASS'
+          CUCUMBER_JOB_STATUS_SIGN: ':white_check_mark:'
+          SEND_SLACK_NOTIFICATION: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.sendnotification) || 'yes' }}
     permissions:
       contents: read
       packages: write
