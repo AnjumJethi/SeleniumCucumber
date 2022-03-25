@@ -77,6 +77,7 @@ jobs:
         env.CUCUMBER_JOB_STATUS_SIGN: ':red_circle:'
     - name: slack - GitHub Actions Slack integration
       id: slack
+      if: steps.rerun.outcome == 'pass'
       uses: slackapi/slack-github-action@v1.18.0
       with:
         payload: |
