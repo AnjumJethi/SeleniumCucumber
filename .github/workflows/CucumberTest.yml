@@ -98,10 +98,6 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Execution Status:*\n<example.com|Fred Enriquez>"
-                    },
-                    {
-                      "type": "mrkdwn",
                       "text": "*Execution Status:*\n${{ env.CUCUMBER_JOB_STATUS }}"
                     },
                     {
