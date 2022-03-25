@@ -1,8 +1,6 @@
 name: Gradle Package
 
-on: [push]
-  repository_dispatch:
-    types: [test]
+on:
   workflow_dispatch:
     inputs:
       tag:
@@ -22,7 +20,7 @@ jobs:
         CUCUMBER_TAG: 'testTagValue'
         CUCUMBER_JOB_STATUS: 'PASS'
         CUCUMBER_JOB_STATUS_SIGN: ':white_check_mark:'
-        SEND_SLACK_NOTIFICATION: ${{ (github.event_name == 'repository_dispatch' && github.event.client_payload.sendnotification) || (github.event_name == 'workflow_dispatch' && github.event.inputs.sendnotification) || 'yes' }}
+        SEND_SLACK_NOTIFICATION: ${{ (github.event_name == 'workflow_dispatch' && github.event.inputs.sendnotification) || 'yes' }}
     permissions:
       contents: read
       packages: write
