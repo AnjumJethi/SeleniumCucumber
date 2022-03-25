@@ -103,14 +103,12 @@ jobs:
                     {
                       "type": "mrkdwn",
                       "text": "*Execution Status:*\n${{ env.CUCUMBER_JOB_STATUS }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Run Details:*\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
                     }
                   ]
-                },
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "*Run Details:*\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
                 }
               }
             ]
