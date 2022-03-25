@@ -86,7 +86,7 @@ jobs:
                 "type": "header",
                 "text": {
                   "type": "plain_text",
-                  "text": "New request",
+                  "text": "New request ${{ github.run_id }}",
                   "emoji": true
                 }
               },
