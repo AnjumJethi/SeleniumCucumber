@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
         CUCUMBER_TAG: 'testTagValue'
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_URL }}
     permissions:
       contents: read
       packages: write
@@ -87,7 +86,7 @@ jobs:
             ]
           }
       env:
-            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_URL }}
+            SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
             SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
