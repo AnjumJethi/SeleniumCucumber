@@ -99,7 +99,7 @@ jobs:
                     },
                     {
                       "type": "mrkdwn",
-                      "text": "*Execution Status:*\n${{ env.CUCUMBER_JOB_STATUS }} ${{ CUCUMBER_JOB_STATUS_SIGN }}"
+                      "text": "*Execution Status:*\n${{ env.CUCUMBER_JOB_STATUS }} ${{ env.CUCUMBER_JOB_STATUS_SIGN }}"
                     },
                     {
                       "type": "mrkdwn",
