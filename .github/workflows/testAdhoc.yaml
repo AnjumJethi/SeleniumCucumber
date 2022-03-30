@@ -1,0 +1,4 @@
+name: TestAdhocExecution
+on:
+  repository_dispatch:
+    types: [test]
