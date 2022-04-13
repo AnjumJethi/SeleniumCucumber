@@ -72,8 +72,8 @@ jobs:
         path: "target/"
     - name: Cucumber Job Status
       run: |
-        "CUCUMBER_JOB_STATUS=pass" >> $GITHUB_ENV
-        env.CUCUMBER_JOB_STATUS_SIGN: ':red_circle:'
+        echo "CUCUMBER_JOB_STATUS=pass" >> $GITHUB_ENV
+        echo "CUCUMBER_JOB_STATUS_SIGN=':red_circle:'" >> $GITHUB_ENV
     - name: slack - GitHub Actions Slack integration
       id: slack
       if: ${{ env.CUCUMBER_JOB_STATUS }} == 'PASS'
