@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
         CUCUMBER_TAG: 'testTagValue'
-        CUCUMBER_JOB_STATUS: 'PASS'
+        CUCUMBER_JOB_STATUS: 'FAIL'
         CUCUMBER_JOB_STATUS_SIGN: ':white_check_mark:'
     permissions:
       contents: read
@@ -71,9 +71,9 @@ jobs:
         name: cucumber-reports
         path: "target/"
     - name: Cucumber Job Status
-      if: steps.rerun.outcome == 'failure'
+      if: steps.rerun.outcome == 'pass'
       run: |
-        env.CUCUMBER_JOB_STATUS: 'FAIL'
+        env.CUCUMBER_JOB_STATUS: 'pass'
         env.CUCUMBER_JOB_STATUS_SIGN: ':red_circle:'
     - name: slack - GitHub Actions Slack integration
       id: slack
