@@ -72,7 +72,7 @@ jobs:
         path: "target/"
     - name: Cucumber Job Status
       run: |
-        env.CUCUMBER_JOB_STATUS: 'pass'
+        CUCUMBER_JOB_STATUS: 'pass'
         env.CUCUMBER_JOB_STATUS_SIGN: ':red_circle:'
     - name: slack - GitHub Actions Slack integration
       id: slack
