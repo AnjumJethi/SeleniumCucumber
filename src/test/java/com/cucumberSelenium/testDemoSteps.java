@@ -18,6 +18,7 @@ public class testDemoSteps {
     @Given("account balance is {double}")
     public void accountBalanceIs(double arg0) {
         System.out.println(arg0);
+        System.setProperty("TotalPass", "1");
         Assert.assertTrue(true);
     }
 
