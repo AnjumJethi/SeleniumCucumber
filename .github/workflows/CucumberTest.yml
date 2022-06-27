@@ -76,6 +76,7 @@ jobs:
         echo "CUCUMBER_JOB_STATUS_SIGN=':red_circle:'" >> $GITHUB_ENV
         echo ${{ env.TotalPass }}
     - run: |
+        ls ./build/cucumber
         echo 'CUCUMBER_JSON<<EOF' >> $GITHUB_ENV
         cat ./build/cucumber/cucumber-report.json >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
