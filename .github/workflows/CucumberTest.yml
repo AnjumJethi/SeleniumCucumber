@@ -77,8 +77,8 @@ jobs:
         echo ${{ env.TotalPass }}
     - run: |
         ls ./target
-        githubjson = 'cat ./target/cucumber-report.json'
-        echo $githubjson
+        echo "githubjson='cat ./target/cucumber-report.json'" >> $GITHUB_ENV
+        echo '${{ fromJson(env.githubjson) }}'
         echo 'CUCUMBER_JSON<<EOF' >> $GITHUB_ENV
         cat ./target/cucumber-report.json >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
