@@ -76,11 +76,11 @@ jobs:
         echo "CUCUMBER_JOB_STATUS_SIGN=':red_circle:'" >> $GITHUB_ENV
         echo ${{ env.TotalPass }}
     - run: |
-        echo 'PACKAGE_JSON<<EOF' >> $GITHUB_ENV
-        cat ./package.json >> $GITHUB_ENV
+        echo 'CUCUMBER_JSON<<EOF' >> $GITHUB_ENV
+        cat ./build/cucumber/bbt_firstRun.json >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
     - run: |
-        echo '${{ fromJson(env.PACKAGE_JSON).version }}'
+        echo '${{ fromJson(env.CUCUMBER_JSON) }}'
     - name: slack - GitHub Actions Slack integration
       id: slack
       if: ${{ env.CUCUMBER_JOB_STATUS }} == 'PASS'
