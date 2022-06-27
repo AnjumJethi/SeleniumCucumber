@@ -76,7 +76,7 @@ jobs:
         echo "CUCUMBER_JOB_STATUS_SIGN=':red_circle:'" >> $GITHUB_ENV
         echo ${{ env.TotalPass }}
     - run: |
-        chmod 777 ./ExecutionSummary.json.json 
+        chmod 777 ./ExecutionSummary.json
         cat `./ExecutionSummary.json.json` 
     - name: slack - GitHub Actions Slack integration
       id: slack
