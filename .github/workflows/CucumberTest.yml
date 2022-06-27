@@ -81,7 +81,7 @@ jobs:
         echo "cucumberSummary=$(cat ./ExecutionSummary.json)" >> $GITHUB_ENV
     - run: |    
         echo ${{ env.cucumberSummary }}
-        echo '${{ fromJson(env.cucumberSummary).PassedScenarios }}'
+        echo 'PassedScenarios: ${{ fromJson(env.cucumberSummary).PassedScenarios }}'
     - name: slack - GitHub Actions Slack integration
       id: slack
       if: ${{ env.CUCUMBER_JOB_STATUS }} == 'PASS'
