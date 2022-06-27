@@ -77,7 +77,7 @@ jobs:
         echo ${{ env.TotalPass }}
     - run: |
         echo 'CUCUMBER_JSON<<EOF' >> $GITHUB_ENV
-        cat ./build/cucumber/bbt_firstRun.json >> $GITHUB_ENV
+        cat ./build/cucumber/cucumber-report.json >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
     - run: |
         echo '${{ fromJson(env.CUCUMBER_JSON) }}'
