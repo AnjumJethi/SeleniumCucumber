@@ -77,7 +77,7 @@ jobs:
         echo ${{ env.TotalPass }}
     - run: |
         chmod 777 ./ExecutionSummary.json
-        cat `./ExecutionSummary.json.json` 
+        cat `./ExecutionSummary.json` 
     - name: slack - GitHub Actions Slack integration
       id: slack
       if: ${{ env.CUCUMBER_JOB_STATUS }} == 'PASS'
