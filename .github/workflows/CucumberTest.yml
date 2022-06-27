@@ -79,6 +79,7 @@ jobs:
         chmod 776 ./ExecutionSummary.json
         cat ./ExecutionSummary.json
         echo "cucumberSummary=$(cat ./ExecutionSummary.json)" >> $GITHUB_ENV
+    - run: |    
         echo ${{ env.cucumberSummary }}
     - name: slack - GitHub Actions Slack integration
       id: slack
